@@ -1,5 +1,5 @@
-#ifndef IBCRYPT_TEST_H
-#define IBCRYPT_TEST_H
+#ifndef LIBIBUR_TEST_H
+#define LIBIBUR_TEST_H
 
 /**
  * A set of functions to facilitate testing

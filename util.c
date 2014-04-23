@@ -51,3 +51,20 @@ void xor_bytes(const void* const _a, const void* const _b, const uint32_t len, v
 		o[i] = a[i] ^ b[i];
 	}
 }
+
+/* constant time memcmp */
+int memcmp_ct(const void* _a, const void* _b, size_t len) {
+	uint8_t* a = (uint8_t*) _a;
+	uint8_t* b = (uint8_t*) _b;
+	
+	uint32_t byte_diff = 0;
+	
+	size_t i;
+	
+	for(i = 0; i < len; i++) {
+		byte_diff |= *a++ - *b++;
+	}
+	
+	/* returns 0 if not equal, 0xff if equal */
+	return ((byte_diff - 1) >> 8) & 0xff;
+}
