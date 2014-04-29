@@ -9,7 +9,6 @@
 /**
  * A set of functions to facilitate testing
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -26,6 +25,14 @@ static inline void assert_equals(const void* const _a, const void* const _b, int
 			printbuf(b, len);
 			exit(-1);
 		}
+	}
+}
+
+static inline void assert_true(int b, const char* const message) {
+	if(!b) {
+		printf("%s failed\n", message);
+		printf("%d", b);
+		exit(-1);
 	}
 }
 
