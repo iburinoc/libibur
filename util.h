@@ -72,4 +72,11 @@ static inline int memcmp_ct(const void* _a, const void* _b, size_t len) {
 	return ((byte_diff - 1) >> 8) & 0xff;
 }
 
+/* floor(log2(x)) */
+static inline uint8_t lg(uint64_t x) {
+	uint8_t l = 0;
+	while(x>>=1) l++;
+	return l;
+}
+
 #endif
