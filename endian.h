@@ -3,17 +3,17 @@
 
 #include <stdint.h>
 
-static inline void     encle64(uint64_t n, void* _b);
-static inline uint64_t decle64(void* _b);
-static inline void     encbe64(uint64_t n, void* _b);
-static inline uint64_t decbe64(void* _b);
+static inline void     encle64(const uint64_t n, void* _b);
+static inline uint64_t decle64(const void* _b);
+static inline void     encbe64(const uint64_t n, void* _b);
+static inline uint64_t decbe64(const void* _b);
 
-static inline void     encle32(uint32_t n, void* _b);
-static inline uint32_t decle32(void* _b);
-static inline void     encbe32(uint32_t n, void* _b);
-static inline uint32_t decbe32(void* _b);
+static inline void     encle32(const uint32_t n, void* _b);
+static inline uint32_t decle32(const void* _b);
+static inline void     encbe32(const uint32_t n, void* _b);
+static inline uint32_t decbe32(const void* _b);
 
-static inline void     encle64(uint64_t n, void* _b) {
+static inline void     encle64(const uint64_t n, void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	b[0] = (n >>  0) & 0xff;
 	b[1] = (n >>  8) & 0xff;
@@ -25,7 +25,7 @@ static inline void     encle64(uint64_t n, void* _b) {
 	b[7] = (n >> 56) & 0xff;
 }
 
-static inline uint64_t decle64(void* _b) {
+static inline uint64_t decle64(const void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	uint64_t n = 0;
 	n |= ((uint64_t) b[0]) <<  0;
@@ -39,7 +39,7 @@ static inline uint64_t decle64(void* _b) {
 	return n;
 }
 
-static inline void     encbe64(uint64_t n, void* _b) {
+static inline void     encbe64(const uint64_t n, void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	b[7] = (n >>  0) & 0xff;
 	b[6] = (n >>  8) & 0xff;
@@ -51,7 +51,7 @@ static inline void     encbe64(uint64_t n, void* _b) {
 	b[0] = (n >> 56) & 0xff;
 }
 
-static inline uint64_t decbe64(void* _b) {
+static inline uint64_t decbe64(const void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	uint64_t n = 0;
 	n |= ((uint64_t) b[7]) <<  0;
@@ -65,7 +65,7 @@ static inline uint64_t decbe64(void* _b) {
 	return n;
 }
 
-static inline void     encle32(uint32_t n, void* _b) {
+static inline void     encle32(const uint32_t n, void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	b[0] = (n >>  0) & 0xff;
 	b[1] = (n >>  8) & 0xff;
@@ -73,7 +73,7 @@ static inline void     encle32(uint32_t n, void* _b) {
 	b[3] = (n >> 24) & 0xff;
 }
 
-static inline uint32_t decle32(void* _b) {
+static inline uint32_t decle32(const void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	uint32_t n = 0;
 	n |= ((uint32_t) b[0]) <<  0;
@@ -83,7 +83,7 @@ static inline uint32_t decle32(void* _b) {
 	return n;
 }
 
-static inline void     encbe32(uint32_t n, void* _b) {
+static inline void     encbe32(const uint32_t n, void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	b[3] = (n >>  0) & 0xff;
 	b[2] = (n >>  8) & 0xff;
@@ -91,7 +91,7 @@ static inline void     encbe32(uint32_t n, void* _b) {
 	b[0] = (n >> 24) & 0xff;
 }
 
-static inline uint32_t decbe32(void* _b) {
+static inline uint32_t decbe32(const void* _b) {
 	uint8_t* b = (uint8_t*) _b;
 	uint32_t n = 0;
 	n |= ((uint32_t) b[3]) <<  0;
