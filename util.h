@@ -68,8 +68,8 @@ static inline int memcmp_ct(const void* _a, const void* _b, size_t len) {
 		byte_diff |= *a++ - *b++;
 	}
 	
-	/* returns 0 if not equal, 0xff if equal */
-	return ((byte_diff - 1) >> 8) & 0xff;
+	/* returns 0 equal, 1 if not equal */
+	return ~((byte_diff - 1) >> 8) & 1;
 }
 
 /* floor(log2(x)) */
