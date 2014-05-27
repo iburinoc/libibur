@@ -65,7 +65,7 @@ static inline int memcmp_ct(const void* _a, const void* _b, size_t len) {
 	size_t i;
 	
 	for(i = 0; i < len; i++) {
-		byte_diff |= *a++ - *b++;
+		byte_diff |= *a++ ^ *b++;
 	}
 	
 	/* returns 0 equal, 1 if not equal */
@@ -80,3 +80,4 @@ static inline uint8_t lg(uint64_t x) {
 }
 
 #endif
+

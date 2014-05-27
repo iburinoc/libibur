@@ -23,16 +23,32 @@ static inline void assert_equals(const void* const _a, const void* const _b, int
 			printf("%s failed\n", message);
 			printbuf(a, len);
 			printbuf(b, len);
-			exit(-1);
+			abort();
 		}
+	}
+}
+
+static inline void assert_eq_int(int64_t a, int64_t b, const char* const message) {
+	if(a != b) {
+		printf("%s failed\n", message);
+		printf("%d\n", b);
+		abort();
+	}
+}
+
+static inline void assert_eq_uint(uint64_t a, uint64_t b, const char* const message) {
+	if(a != b) {
+		printf("%s failed\n", message);
+		printf("%d\n", b);
+		abort();
 	}
 }
 
 static inline void assert_true(int b, const char* const message) {
 	if(!b) {
 		printf("%s failed\n", message);
-		printf("%d", b);
-		exit(-1);
+		printf("%d\n", b);
+		abort();
 	}
 }
 
