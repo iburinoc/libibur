@@ -31,7 +31,8 @@ static inline void assert_equals(const void* const _a, const void* const _b, int
 static inline void assert_eq_int(int64_t a, int64_t b, const char* const message) {
 	if(a != b) {
 		printf("%s failed\n", message);
-		printf("%llu\n", b);
+		printf("%lld\n", a);
+		printf("%lld\n", b);
 		abort();
 	}
 }
@@ -39,6 +40,7 @@ static inline void assert_eq_int(int64_t a, int64_t b, const char* const message
 static inline void assert_eq_uint(uint64_t a, uint64_t b, const char* const message) {
 	if(a != b) {
 		printf("%s failed\n", message);
+		printf("%llu\n", a);
 		printf("%llu\n", b);
 		abort();
 	}
@@ -47,7 +49,7 @@ static inline void assert_eq_uint(uint64_t a, uint64_t b, const char* const mess
 static inline void assert_true(int b, const char* const message) {
 	if(!b) {
 		printf("%s failed\n", message);
-		printf("%llu\n", b);
+		printf("%d\n", b);
 		abort();
 	}
 }
