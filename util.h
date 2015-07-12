@@ -46,6 +46,12 @@ static inline void from_hex(const char* const hex, uint8_t* const buf) {
 	}
 }
 
+static inline void to_hex(const uint8_t* const buf, const size_t len, char* const hex) {
+	for(size_t i = 0; i < len; i++) {
+		sprintf(hex + 2 * i, "%x", buf[i]);
+	}
+}
+
 static inline void xor_bytes(const void* const _a, const void* const _b, const uint32_t len, void* const _o) {
 	const uint8_t* const a = (uint8_t*) _a;
 	const uint8_t* const b = (uint8_t*) _b;
