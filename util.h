@@ -48,7 +48,7 @@ static inline void from_hex(const char* const hex, uint8_t* const buf) {
 
 static inline void to_hex(const uint8_t* const buf, const size_t len, char* const hex) {
 	for(size_t i = 0; i < len; i++) {
-		sprintf(hex + 2 * i, "%x", buf[i]);
+		sprintf(hex + 2 * i, "%.2x", buf[i]);
 	}
 }
 
